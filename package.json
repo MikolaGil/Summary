@@ -2,8 +2,9 @@
   "name": "summary",
   "version": "1.0.0",
   "description": "Summary node.js project",
-  "main": "app.js",
   "scripts": {
+    "start": "npm run less && node app.js",
+    "less": "lessc public/css/app.less public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "less": "^4.1.1"
   }
 }

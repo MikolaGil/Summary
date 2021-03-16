@@ -1,0 +1,132 @@
+.fontStyle {
+    font-family: sans-serif;
+    line-height: 20px;
+    margin-bottom: 0.5em;
+    line-height: 1.5em;
+}
+.displayFlexRow {
+    display: flex;
+    flex-direction: row;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main__info {
+    height: 100%;
+    padding: 2em;
+    width: 50%;
+    .displayFlexRow();
+}
+.main__info_image {
+    width: 120px;
+    height: 150px;
+    margin-right:2em;
+}
+.main__info_text{
+    font-family:sans-serif;
+    line-height: 17px;
+}
+.main__info_text h2 {
+    font-size: 23px;
+    color: #9A9A9A;
+    margin-bottom: 0.5em;
+}
+.main__info_text h3 {
+    font-size: 19px;
+    color: #000000;
+    font-weight: 900;
+    margin-bottom: 0.5em;
+}
+.main__info_text div{
+    font-size: 15px;
+    margin-bottom:0.5em;
+    line-height: 1.5em;
+}
+.main__contacts {
+    font-family: sans-serif;
+    line-height: 17px;
+}
+.main__contacts_list li > span:first-child {
+    margin-right: 0.5em;
+    font-weight: 700;
+}
+.main__border {
+    border: 1px solid #000000;
+    margin-top: 2em;
+    padding: 2em;
+    width: 50%
+}
+.main__section_title {
+    color: #9A9A9A;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+    position: relative;
+    padding: 0 0.3em;
+    background-color: #ffffff;
+    top: -44px;
+}
+.main__experience_list li {
+    .displayFlexRow();
+}
+
+.main__experience_list li > div:first-child{
+    width: 35%;
+}
+.main__experience_list > li > div{
+    width: 60%;
+    font-size:17px;
+    margin-bottom: 0.3em;
+}
+.main__experience_list > li > div > div:nth-child(2) {
+    font-weight: 700;
+}
+.main__experience_list > li > div p{
+    margin-bottom: 0.3em;
+}
+.main__education_info {
+    .displayFlexRow();
+}
+.main__education_date {
+    font-weight: 700;
+}
+.main__education div:first-child {
+    margin-right: 5em;
+}
+.main__additional {
+    width: 53%;
+    .displayFlexRow();
+}
+.main__languages{
+    width: 30%;
+    margin-right: 1em;
+    margin-left: -4px;
+}
+.main__skills {
+    width: 60%;
+    margin-right: -3px;
+}
+.main__additional_languageList li{
+    margin-bottom: 1em;
+}
+.main__additional_languageList li > div:first-child {
+    font-weight: 700;
+}
+.main__skills_list{
+    columns:3;
+}
+.main__skills_list li {
+    .fontStyle();
+}
+.main__courses_list li{
+    margin-bottom:1em;
+}
+.main__courses_list li > div:first-child {
+    font-weight: 700;
+}
+.main__fontList {
+    .fontStyle();
+}

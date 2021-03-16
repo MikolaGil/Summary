@@ -108,15 +108,15 @@
   margin-right: 1em;
   margin-left: -4px;
 }
-.main__skills {
-  width: 60%;
-  margin-right: -3px;
-}
 .main__additional_languageList li {
   margin-bottom: 1em;
 }
 .main__additional_languageList li > div:first-child {
   font-weight: 700;
+}
+.main__skills {
+  width: 60%;
+  margin-right: -3px;
 }
 .main__skills_list {
   columns: 3;

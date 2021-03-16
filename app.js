@@ -6,13 +6,13 @@ const app = express();
 
 const config = require('./config');
 const path = require('path');
+const favicon = require('serve-favicon');
 
-app.set('views', path.join(__dirname,'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('port', config.port);
 
-//app.use('/img/favicon.ico', express.static('/img/favicon.ico'));
-//app.use(app.router);
+app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

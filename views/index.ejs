@@ -1,147 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/web/css/reset.css">
-    <link rel="stylesheet" href="/web/css/app.css">
-
-    <title>Mikalai Hil Summary</title>
-
+    <%- include('../template/pageHead.ejs')%>
 </head>
 <body>
     <main class="main">
         <section class="main__info main__border">
             <img class="main__info_image" src="/web/img/person-min.png" alt="user_image" />
             <div class="main__info_text">
-                <h2>Mikalai Hil</h2>
-                <h3>Front-end, Node.js developer</h3>
-                <div>Proactive, result-orientated developer with over 3 years of experience.</div>
-                <div>Passionate about front-end and related technologies. </div>
-                <div>Seeking a position where I can enchane my development experience.</div>
+                <h2><%=firstName%> <%=secondName%></h2>
+                <h3><%=position%></h3>
+                <div><%=about%></div>
             </div>
             <div>
                 <button class="main__info_pdf" onclick="window.open('/pdf')">Download PDF</button>
-                <div><a href="https://github.com/MikolaGil/Summary" target="_blank">Project on GitHub</a></div>
+                <div><a href="<%=github%>" target="_blank">Project on GitHub</a></div>
             </div>
         </section>
 
         <section class="main__contacts main__border">
-            <ul class="main__contacts_list">
-                <li>
-                    <span>Email:</span>
-                    <span>mikolagil@gmail.com</span>
-                </li>
-                <li>
-                    <span>Adress:</span>
-                    <span>Minsk</span>
-                </li>
-                <li>
-                    <span>Phone</span>
-                    <span>29-578-20-42</span>
-                </li>
-                <li>
-                    <span>Date of birth:</span>
-                    <span>07-16-1988</span>
-                </li>
-                <li>
-                    <span>Nationality:</span>
-                    <span>Belarus</span>
-                </li>
-                <li>
-                    <span>Link:</span>
-                    <span><a href="https://www.linkedin.com/in/nikolaigil/" target="_blank">Linkedin</a></span>
-                </li>
-            </ul>
+            <% if(Array.isArray(contacts) && contacts.length) {%>
 
+            <ul class="main__contacts_list">
+                <% for(let i = 0; i < contacts.length; i++){%>
+                <li>
+                    <span><%=contacts[i].type%>:</span>
+                    <span><%=contacts[i].data%></span>
+                </li>
+                <%} %>
+            </ul>
+            <%} %>
         </section>
+
         <section class="main__experience main__border main__fontList">
             <span class="main__section_title">Experience</span>
+            <% if(Array.isArray(work) && work.length){%>
             <ul class="main__experience_list">
+                <% for(let i = 0; i < work.length; i++){%>
                 <li>
-                    <div class="main__education_date">June 2018 - Present</div>
+                    <div class="main__education_date"><%=work[i].dateStart%> - <%=work[i].dateEnd%></div>
                     <div>
-                        <div>Front-end, Node.js developer</div>
-                        <div>Multi Parts Supply USA, Minsk</div>
-                        <p>Develop highly interactive web applications utilizing JavaScript, ES6, HTML5, CSS, Node.js, SQL.</p>
-                        <p>Create custom general use modules and components extending the elements and modules</p>
-                        <p>Experience with GULP toolkit, set up pre-build tasks</p>
-                        <p>Experience RESTful API design and development for mobile app</p>
-                        <p>Developed desktop application (Electron.js, Node.js)</p>
-                        <p> Mobile application development experience(Xamarin, C#)</p>
+                        <div><%=work[i].position%></div>
+                        <div><%=work[i].place%></div>
+                        <% if(Array.isArray(work[i].responsibilities) && work[i].responsibilities.length){%>
+                            <% for(let y = 0; y < work.length; y++){%>
+                                <p><%=work[i].responsibilities[y]%></p>
+                            <%} %>
+                        <%} %>
                     </div>
                 </li>
-                <li>
-                    <div class="main__education_date">November 2017 - June 2018</div>
-                    <div>
-                        <div>Front-end developer</div>
-                        <div>Educational Center of HTP "IT Academy", Minsk</div>
-                        <p>Work on the position 'front-end developer' .</p>
-                        <p>Developed and maintained web application for HR department.</p>
-                        <p>Maintained core functionalities according to defined planning and development quality standards</p>
-                    </div>
-                </li>
+                <%} %>
             </ul>
+            <%} %>
         </section>
 
         <section class="main__education main__border main__fontList">
             <span class="main__section_title">Education</span>
             <div class="main__education_info">
-                <div class="main__education_date">September 2006 - July 2011</div>
-                <div>
-                    <div>Higher education</div>
-                    <span>BSUIR</span>
-                    <span>Minsk</span>
-                    <div>Radio informatics and electronics engineer</div>
-                </div>
+                <% if(Array.isArray(education) && education.length){%>
+                    <% for(let i = 0; i < education.length; i++){%>
+                <div class="main__education_date"><%=education[i].dateStart%> - <%=education[i].dateEnd%></div>
+                        <div>
+                            <div><%=education[i].type%></div>
+                            <span><%=education[i].place%></span>
+                            <span><%=education[i].country%></span>
+                            <div><%=education[i].specialization%></div>
+                        </div>
+                    <%} %>
+                <%} %>
             </div>
         </section>
 
         <section class="main__additional">
             <section class="main__languages main__border">
                 <span class="main__section_title">Languages</span>
-                <ul class="main__additional_languageList main__fontList">
-                    <li>
-                        <div>English</div>
-                        <div>Intermediate</div>
-                    </li>
-                    <li>
-                        <div>Russian</div>
-                        <div>Advanced</div>
-                    </li>
-                </ul>
+                <% if(Array.isArray(languages) && languages.length){%>
+                    <ul class="main__additional_languageList main__fontList">
+                        <% for(let i = 0; i < languages.length; i++){%>
+                            <li>
+                                <div><%=languages[i].lang %></div>
+                                <div><%=languages[i].level %></div>
+                            </li>
+                        <%} %>
+                    </ul>
+                <%} %>
             </section>
             <section class="main__skills main__border">
                 <span class="main__section_title">Skills</span>
-                <ul class="main__skills_list main__fontList">
-                    <li>HTML5</li>
-                    <li>Node.js</li>
-                    <li>JavaScript</li>
-                    <li>ES6</li>
-                    <li>Webix</li>
-                    <li>RESTful</li>
-                    <li>SQL</li>
-                    <li>Git</li>
-                    <li>TypeScript</li>
-                    <li>Xamarin</li>
-                </ul>
+                <% if(Array.isArray(skills) && skills.length){%>
+                    <ul class="main__skills_list main__fontList">
+                        <% for(let i = 0; i < skills.length; i++){%>
+                            <li><%= skills[i]%></li>
+                        <%} %>
+                    </ul>
+                <%} %>
             </section>
         </section>
 
         <section class="main__courses main__border">
             <span class="main__section_title">Certifications & Courses</span>
-            <ul class="main__courses_list main__fontList">
-                <li>
-                    <div>C# Development</div>
-                    <div>Educational center of HTP "IT Academy", 2019</div>
-                </li>
-                <li>
-                    <div>Web application development on JavaScript</div>
-                    <div>Educational center of HTP "IT Academy", 2018</div>
-                </li>
-                <li>
-                    <div>Front-end fundamentals</div>
-                    <div>Educational center of HTP "IT Academy", 2017</div>
-                </li>
-            </ul>
+            <% if(Array.isArray(courses) && courses.length){%>
+                <ul class="main__courses_list main__fontList">
+                    <% for(let i = 0; i < courses.length; i++){%>
+                        <li>
+                            <div><%=courses[i].name%></div>
+                            <div><%=courses[i].place%>, <%=courses[i].date%></div>
+                        </li>
+                    <%} %>
+                </ul>
+            <%} %>
         </section>
     </main>
 </body>

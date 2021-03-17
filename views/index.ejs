@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/web/css/reset.css">
     <link rel="stylesheet" href="/web/css/app.css">
+    <script src="/web/js/script.js"></script>
 
     <title>Mikalai Hil Summary</title>
 
@@ -12,14 +13,14 @@
         <section class="main__info main__border">
             <img class="main__info_image" src="/web/img/person-min.png" alt="user_image" />
             <div class="main__info_text">
-                <h2>Mikalai Hil</h2>
+                <h2><%=firstName%> <%=secondName%></h2>
                 <h3>Front-end, Node.js developer</h3>
                 <div>Proactive, result-orientated developer with over 3 years of experience.</div>
                 <div>Passionate about front-end and related technologies. </div>
                 <div>Seeking a position where I can enchane my development experience.</div>
             </div>
             <div>
-                <button class="main__info_pdf" onclick="window.open('/pdf')">Download PDF</button>
+                <button class="main__info_pdf" onclick="downloadPdf">Download PDF</button>
                 <div><a href="https://github.com/MikolaGil/Summary" target="_blank">Project on GitHub</a></div>
             </div>
         </section>

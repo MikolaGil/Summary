@@ -2,9 +2,12 @@ const router = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const config = require('../config');
+const User = require('../db/User');
 
 router.get('/summary', (req, res) => {
-    res.status(200).render('index');
+    const user = new User();
+    const userInfo = user.getInfo();
+    res.status(200).render('index', userInfo);
 });
 
 router.get('/pdf', (req, res) => {

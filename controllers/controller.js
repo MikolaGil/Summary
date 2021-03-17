@@ -2,7 +2,7 @@ const router = require('express').Router();
 const path = require('path');
 const fs = require('fs');
 const config = require('../config');
-const User = require('../db/User');
+const User = require('../user/User');
 
 router.get('/summary', (req, res) => {
     const user = new User();
@@ -15,7 +15,7 @@ router.get('/pdf', (req, res) => {
 
     if (fs.existsSync(filePath)) {
 
-        res.status(200).download(filePath);
+        res.status(200).sendFile(filePath);
     } else {
         res.statusCode = 404;
         res.end(`File not found: ${filePath}`)

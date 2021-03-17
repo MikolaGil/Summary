@@ -1,6 +1,5 @@
 
 class User{
-    //constructor();
 
     getInfo(){
         const User = {
@@ -8,6 +7,7 @@ class User{
             secondName: 'Hil',
             position: 'Front-end, Node.js developer',
             about: 'Proactive, result-orientated developer with over 3 years of experience. Passionate about front-end and related technologies. Seeking a position where I can enchane my development experience.',
+            github: 'https://github.com/MikolaGil/Summary',
             contacts: [
                 {
                     type: 'Email',

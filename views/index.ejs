@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/web/css/reset.css">
-    <link rel="stylesheet" href="/web/css/app.css">
-    <script src="/web/js/script.js"></script>
-
-    <title>Mikalai Hil Summary</title>
-
+    <%- include('../template/pageHead.ejs')%>
 </head>
 <body>
     <main class="main">
@@ -18,8 +13,8 @@
                 <div><%=about%></div>
             </div>
             <div>
-                <button class="main__info_pdf" onclick="downloadPdf">Download PDF</button>
-                <div><a href="https://github.com/MikolaGil/Summary" target="_blank">Project on GitHub</a></div>
+                <button class="main__info_pdf" onclick="window.open('/pdf')">Download PDF</button>
+                <div><a href="<%=github%>" target="_blank">Project on GitHub</a></div>
             </div>
         </section>
 
@@ -36,6 +31,7 @@
             </ul>
             <%} %>
         </section>
+
         <section class="main__experience main__border main__fontList">
             <span class="main__section_title">Experience</span>
             <% if(Array.isArray(work) && work.length){%>

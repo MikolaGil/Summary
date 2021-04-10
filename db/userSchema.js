@@ -7,7 +7,9 @@ const userSchema = new Schema({
     position: String,
     about: String,
     github: String,
-    contacts: [{ type: String, data: String }],
+    contacts: [
+        { type: {type: String}, data: String }
+    ],
     work: [
         {
             dateStart: String,
@@ -23,7 +25,7 @@ const userSchema = new Schema({
             dateEnd: String,
             place: String,
             country: String,
-            type: String,
+            type: { type: String },
             specialization: String,
         }
     ],

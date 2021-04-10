@@ -4,9 +4,10 @@ const fs = require('fs');
 const config = require('../config');
 const User = require('../user/User');
 
-router.get('/summary', (req, res) => {
+router.get('/summary',async (req, res) => {
     const user = new User();
-    const userInfo = user.getInfo();
+    const userInfo = await user.getInfo();
+
     res.status(200).render('index', userInfo);
 });
 
